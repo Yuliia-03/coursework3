@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Rhizobium
-comment0.text=\n\ Write\ a\ description\ of\ class\ Rhizobium\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Rhizobium\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=field\ location\ col
 comment1.target=Rhizobium(Field,\ Location,\ javafx.scene.paint.Color)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Rhizobium\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Rhizobium\r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

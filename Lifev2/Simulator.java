@@ -72,7 +72,7 @@ public class Simulator {
       for (int row = 0; row < field.getDepth(); row++) {
         for (int col = 0; col < field.getWidth(); col++) {
           Location location = new Location(row, col);
-          Mycoplasma myco = new Mycoplasma(field, location, Color.ORANGE);
+          Rhizobium myco = new Rhizobium(field, location, Color.ORANGE);
           if (rand.nextDouble() <= MYCOPLASMA_ALIVE_PROB) {
             cells.add(myco);
           }

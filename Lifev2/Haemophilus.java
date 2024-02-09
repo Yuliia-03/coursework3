@@ -1,4 +1,4 @@
-package Lifev2;
+ 
 import javafx.scene.paint.Color; 
 import java.util.List;
 import java.util.Random;

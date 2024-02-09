@@ -42,6 +42,5 @@ public class Mycoplasma extends Cell {
                 setNextState(true);
             }
         }
-        }
     }
 }

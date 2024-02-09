@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx-preloader" build-on-make="true" name="Game of Life Base Code-20240206:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Game_of_Life_Base_Code_20240206_jar</output-path>
+    <root id="archive" name="Game of Life Base Code-20240206:jar.jar">
+      <element id="archive" name="Game of Life Base Code-20240206.jar">
+        <element id="module-output" name="Game of Life Base Code-20240206" />
+      </element>
+    </root>
+  </artifact>
+</component>
