@@ -26,9 +26,9 @@ public class Haemophilus extends Cell
         setNextState(false);
     
         if (isAlive()) {
-            if (neighbours.size() > 1)
+            if (neighbours.size() > 3)
                 setNextState(true);
-            if (neighbours.size() == 8)
+            if (neighbours.size() == 4)
             {
                 Random rand = new Random();
                 int r = rand.nextInt(256);
@@ -39,7 +39,7 @@ public class Haemophilus extends Cell
         }
         else
         { 
-            if (neighbours.size() == 4)
+            if (neighbours.size() == 2)
             {
                 setNextState(true);
             }
