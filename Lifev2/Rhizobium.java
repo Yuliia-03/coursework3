@@ -28,7 +28,8 @@ public class Rhizobium extends Cell
         setNextState(false);
         if (isAlive()) {
             this.age++;
-            
+
+            /* if(this.age % 5 == 0 && neighbours.size() < (this.age/5)*2) */
             if (this.age == 20 && neighbours.size()<8){
                 setNextState(false);
             }
