@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Brucella
+comment0.text=\n\ Write\ a\ description\ of\ class\ Brucella\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=field\ location\ col
+comment1.target=Brucella(Field,\ Location,\ javafx.scene.paint.Color)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Brucella\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ \ \ \ \ \n
+comment3.params=
+comment3.target=void\ conditionalSurvival()
+numComments=4
