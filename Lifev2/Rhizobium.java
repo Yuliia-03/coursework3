@@ -20,17 +20,15 @@ public class Rhizobium extends Cell
     {
         super(field, location, col);
         this.age = 0;
-        
     }
 
     public void act()
     {
         List<Cell> neighbours = getField().getLivingNeighbours(getLocation());
         setNextState(false);
-
         if (isAlive()) {
             this.age++;
-
+            
             if (this.age == 20 && neighbours.size()<8){
                 setNextState(false);
             }
@@ -46,8 +44,6 @@ public class Rhizobium extends Cell
             else {
                 setNextState(true);
             }
-
-
         }
         else
         { 
@@ -56,7 +52,10 @@ public class Rhizobium extends Cell
                 setNextState(true);
             }
         }
-        setColor(COLORS[neighbours.size()]);
     }
     
+    public Color getColor() {
+        List<Cell> neighbours = getField().getLivingNeighbours(getLocation());
+        return COLORS[neighbours.size()];
+    }
 }
