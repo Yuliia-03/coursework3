@@ -16,6 +16,9 @@ import java.util.Random;
 public class Simulator {
 
     private static final double MYCOPLASMA_ALIVE_PROB = 0.25;
+    private static final double CELLS_ALIVE_PROB = 0.5;
+    private static final double HAEMOPHILUS_CELLS = 0.45;
+    //private static final double BRUCELLA_CELLS = 0.55;
     private List<Cell> cells;
     private Field field;
     private int generation;
@@ -72,13 +75,34 @@ public class Simulator {
       for (int row = 0; row < field.getDepth(); row++) {
         for (int col = 0; col < field.getWidth(); col++) {
           Location location = new Location(row, col);
-          Rhizobium myco = new Rhizobium(field, location, Color.ORANGE);
-          if (rand.nextDouble() <= MYCOPLASMA_ALIVE_PROB) {
-            cells.add(myco);
+          
+          if (rand.nextDouble() <= HAEMOPHILUS_CELLS) {
+            Haemophilus myco = new Haemophilus(field, location, Color.ORANGE);
+            
+            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
+            {
+                cells.add(myco);
+            }
+            else
+            {
+                myco.setDead();
+                cells.add(myco);
+            }
           }
-          else {
-            myco.setDead();
-            cells.add(myco);
+          else 
+          {
+            Brucella myco = new Brucella(field, location, Color.ORANGE);
+            
+            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
+            {
+                cells.add(myco);
+            }
+            else
+            {
+                myco.setDead();
+                cells.add(myco);
+            }
+            
           }
         }
       }
