@@ -43,4 +43,6 @@ public class Mycoplasma extends Cell {
             }
         }
     }
-}
+        
+    }
+

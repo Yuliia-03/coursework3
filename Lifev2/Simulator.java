@@ -18,7 +18,8 @@ public class Simulator {
     private static final double MYCOPLASMA_ALIVE_PROB = 0.25;
     private static final double CELLS_ALIVE_PROB = 0.5;
     private static final double HAEMOPHILUS_CELLS = 0.45;
-    //private static final double BRUCELLA_CELLS = 0.55;
+    private static final double DISEASED_CELLS = 0.15;
+    
     private List<Cell> cells;
     private Field field;
     private int generation;
@@ -82,12 +83,17 @@ public class Simulator {
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
                 cells.add(myco);
+                if (rand.nextDouble() <= DISEASED_CELLS)
+                {
+                    myco.setDiseased();
+                }
             }
             else
             {
                 myco.setDead();
                 cells.add(myco);
             }
+            
           }
           else 
           {
@@ -96,6 +102,10 @@ public class Simulator {
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
                 cells.add(myco);
+                if (rand.nextDouble() <= DISEASED_CELLS)
+                {
+                    myco.setDiseased();
+                }
             }
             else
             {
@@ -104,9 +114,11 @@ public class Simulator {
             }
             
           }
+          
+        }
         }
       }
-    }
+    
 
     /**
      * Pause for a given time.

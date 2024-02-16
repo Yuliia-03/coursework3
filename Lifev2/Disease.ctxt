@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Disease
+comment0.text=\n\ Write\ a\ description\ of\ class\ Disease\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=field\ location\ originalCell
+comment1.target=Disease(Field,\ Location,\ Cell)
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Disease\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=neighbours
+comment3.target=void\ infect(java.util.List)
+comment4.params=
+comment4.target=void\ recover()
+numComments=5

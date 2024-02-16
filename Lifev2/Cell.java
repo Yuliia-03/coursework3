@@ -94,6 +94,12 @@ public abstract class Cell {
         this.location = location;
         field.place(this, location);
     }
+    
+    protected void setDiseased()
+    {
+        Cell newCell = new Disease(this.getField(), this.getLocation(), this);
+        this.getField().place(newCell, this.getLocation());
+    }
 
     /**
      * Return the cell's field.
