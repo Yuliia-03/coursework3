@@ -3,25 +3,33 @@ import javafx.scene.paint.Color;
 import java.util.List;
 
 /**
- * Write a description of class Rhizobium here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Rhizobium is a bacterium found in soil that helps in fixing nitrogen in leguminous plants. 
+ * Fun Fact: Rhizobia used for more than 100 years in legume biofertilization [22] are particularly safe for humans, hence its edible!
+ * 
  */
 public class Rhizobium extends Cell
 {
-    private int age;
+    private int age; //to count the number of generations the rhizobium has survived for
+    
     private static final Color[] COLORS = {Color.BROWN, Color.PINK, Color.ORANGE, Color.YELLOW, Color.LIGHTGREEN, Color.DARKGREEN, Color.LIGHTBLUE, Color.DARKBLUE, Color.VIOLET};
     
     /**
-     * Constructor for objects of class Rhizobium
+     * Create a new Haemophilus.
+     * 
+     * @param field The field currently occupied.
+     * @param location The location within the field.
+     * @param col The color of the cell.
      */
     public Rhizobium(Field field, Location location, Color col)
     {
         super(field, location, col);
-        this.age = 0;
+        this.age = 0; 
         
     }
+    
+    /**
+    * This is how the Rhizobium decides if it's alive or not
+    */
 
     public void act()
     {
@@ -48,6 +56,9 @@ public class Rhizobium extends Cell
         }
     }
     
+    /**
+     * This is how the Rhizobium changes its color based on its age.
+     */
     public Color getColor() {
         List<Cell> neighbours = getField().getLivingNeighbours(getLocation());
         return COLORS[neighbours.size()];

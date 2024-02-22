@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.target=Rhizobium
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Rhizobium\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Rhizobium\ is\ a\ bacterium\ found\ in\ soil\ that\ helps\ in\ fixing\ nitrogen\ in\ leguminous\ plants.\ \n\ Fun\ Fact\:\ Rhizobia\ used\ for\ more\ than\ 100\ years\ in\ legume\ biofertilization\ [22]\ are\ particularly\ safe\ for\ humans,\ hence\ its\ edible\!\n\ \n
 comment1.params=field\ location\ col
 comment1.target=Rhizobium(Field,\ Location,\ javafx.scene.paint.Color)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Rhizobium\r\n
+comment1.text=\n\ Create\ a\ new\ Haemophilus.\n\ \n\ @param\ field\ The\ field\ currently\ occupied.\n\ @param\ location\ The\ location\ within\ the\ field.\n\ @param\ col\ The\ color\ of\ the\ cell.\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\n\ This\ is\ how\ the\ Rhizobium\ decides\ if\ it's\ alive\ or\ not\n
 comment3.params=
 comment3.target=javafx.scene.paint.Color\ getColor()
+comment3.text=\n\ This\ is\ how\ the\ Rhizobium\ changes\ its\ color\ based\ on\ its\ age.\n
 numComments=4

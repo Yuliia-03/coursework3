@@ -18,6 +18,7 @@ public class Mycoplasma extends Cell {
      *
      * @param field The field currently occupied.
      * @param location The location within the field.
+     * @param col The color of the cell.
      */
     public Mycoplasma(Field field, Location location, Color col) {
         super(field, location, col);
