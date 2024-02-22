@@ -37,6 +37,10 @@ public class Field {
             }
         }
     }
+    
+    public void updateListOfCells(List<Cell> cells) {
+    
+    }
 
     /**
      * Clear the given location.

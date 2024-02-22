@@ -1,6 +1,5 @@
 import javafx.scene.paint.Color;
 import java.util.List;
-import java.util.stream.Stream;
 /**
  * Write a description of class Disease here.
  *
@@ -9,7 +8,6 @@ import java.util.stream.Stream;
  */
 public class Disease extends Cell
 {
-    
     protected Cell originalCell;
     private int diseasedTerm;
     
@@ -20,41 +18,67 @@ public class Disease extends Cell
     {
         super(field, location, Color.RED);
         this.originalCell = originalCell;
+        this.diseasedTerm = 1;
     }
 
     
     public void act()
     {
         List<Cell> neighbours = getField().getLivingNeighbours(getLocation());
-        long healthyCells = Stream.of(neighbours)
+        long healthyCells = neighbours.stream()
                                     .filter(s -> !(s instanceof Disease))
                                     .count();
         
-        if(healthyCells >= 3 && diseasedTerm < 5){
+        System.out.println(healthyCells);
+        if(isAlive()){
+        if(healthyCells >= 3 && this.diseasedTerm < 5){
             recover();
         } else {
             infect(neighbours);
-            if(diseasedTerm >= 5) {
-                setNextState(false);
+            if(this.diseasedTerm >= 5) {
+                //recover();
+                //this.setDead();
+                this.originalCell.setNextState(false);
+                this.getField().place(this.originalCell, this.getLocation());
+                
+                int index = Simulator.getCells().indexOf(this);
+                Simulator.getCells().set(index, this.originalCell);
+                //this.originalCell.setNextState(false);
             } else {
-                setNextState(true);
+                this.setNextState(true);
             }
-            diseasedTerm++;
+            
         }
+        this.diseasedTerm++;
+    }
+        //recover();
     }
     
     private void infect(List<Cell> neighbours)
     {
         for(Cell cell: neighbours) {
-                Cell newCell = new Disease(cell.getField(), cell.getLocation(), cell);
+            if(!(cell instanceof Disease)){
+                Disease newCell = new Disease(cell.getField(), cell.getLocation(), cell);
                 cell.getField().place(newCell, cell.getLocation());
+                
+                int index = Simulator.getCells().indexOf(cell);
+                Simulator.getCells().set(index, newCell);
+                
+                newCell.setNextState(true);
+                newCell.setUpdated();
             }
+        }
     }
     
     private void recover()
     {
         this.getField().place(this.originalCell, this.getLocation());
-        setNextState(true);
+        
+        int index = Simulator.getCells().indexOf(this);
+        Simulator.getCells().set(index, this.originalCell);
+        
+        originalCell.setNextState(true);
+        originalCell.setUpdated();
     }
     
     

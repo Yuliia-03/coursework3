@@ -14,6 +14,8 @@ public abstract class Cell {
     private Field field;
     private Location location;
     private Color color = Color.WHITE;
+    
+    protected boolean isUpdated = false;
 
     /**
      * Create a new cell at location in field.
@@ -27,6 +29,18 @@ public abstract class Cell {
         this.field = field;
         setLocation(location);
         setColor(col);
+    }
+    
+    public boolean getUpdateState(){
+        return this.isUpdated;
+    }
+    
+    public void setUpdated(){
+        this.isUpdated = true;
+    }
+    
+    public void setUpdateFalse(){
+        this.isUpdated = false;
     }
 
     /**

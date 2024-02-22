@@ -20,7 +20,7 @@ public class Simulator {
     private static final double HAEMOPHILUS_CELLS = 0.45;
     private static final double DISEASED_CELLS = 0.15;
     
-    private List<Cell> cells;
+    private static List<Cell> cells;
     private Field field;
     private int generation;
 
@@ -47,14 +47,23 @@ public class Simulator {
      * Iterate over the whole field updating the state of each life form.
      */
     public void simOneGeneration() {
+        
         generation++;
         for (Iterator<Cell> it = cells.iterator(); it.hasNext(); ) {
             Cell cell = it.next();
-            cell.act();
+            if(!cell.getUpdateState()){
+                cell.act();
+                cell.setUpdated();
+            }
+            System.out.println(cell.getClass());
+            if(cell instanceof Disease ) {
+                //System.out.println(cell.getOr);
+            }
         }
 
         for (Cell cell : cells) {
           cell.updateState();
+          cell.setUpdateFalse();
         }
     }
 
@@ -82,10 +91,15 @@ public class Simulator {
             
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
-                cells.add(myco);
+                //cells.add(myco);
                 if (rand.nextDouble() <= DISEASED_CELLS)
                 {
-                    myco.setDiseased();
+                    Disease newCell = new Disease(myco.getField(), myco.getLocation(), myco);
+                    newCell.getField().place(newCell, newCell.getLocation());
+                    cells.add(newCell);
+                    //myco.setDiseased();
+                } else {
+                    cells.add(myco);
                 }
             }
             else
@@ -101,10 +115,15 @@ public class Simulator {
             
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
-                cells.add(myco);
+                //cells.add(myco);
                 if (rand.nextDouble() <= DISEASED_CELLS)
                 {
-                    myco.setDiseased();
+                    Disease newCell = new Disease(myco.getField(), myco.getLocation(), myco);
+                    newCell.getField().place(newCell, newCell.getLocation());
+                    cells.add(newCell);
+                    //myco.setDiseased();
+                } else {
+                    cells.add(myco);
                 }
             }
             else
@@ -118,6 +137,10 @@ public class Simulator {
         }
         }
       }
+      
+    public static List<Cell> getCells(){
+        return cells;
+    }
     
 
     /**

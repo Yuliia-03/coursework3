@@ -26,7 +26,7 @@ public class Haemophilus extends Cell
         setNextState(false);
     
         if (isAlive()) {
-            if (neighbours.size() > 3)
+            if (neighbours.size() > 1)
             {
                 symbiosis(neighbours);
                 setNextState(true);
@@ -65,11 +65,18 @@ public class Haemophilus extends Cell
             }
         }
             
-        if(brucellaCells > 3) {
+        if(brucellaCells > 1) {
             
             Cell newCell = new Brucella(this.getField(), this.getLocation(), this.getColor());
-            this.getField().place(newCell, this.getLocation()); 
+            this.getField().place(newCell, this.getLocation());
+            
+            int index = Simulator.getCells().indexOf(this);
+            Simulator.getCells().set(index, newCell);
+            
+            newCell.setUpdated();
+            
         }
         
     }
+    
 }
