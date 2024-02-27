@@ -165,7 +165,10 @@ public class Simulator {
     public static List<Cell> getCells(){
         return cells;
     }
-
+    
+    /**
+     * Update the cells on the field.
+     */
     public static void updateCells(int index, Cell newCell){
         cells.set(index, newCell);
     }
@@ -182,11 +185,18 @@ public class Simulator {
             // wake up
         }
     }
-    
+
+
+    /**
+     * Return field
+     */
     public Field getField() {
         return field;
     }
 
+    /**
+     * Return the number of the current generation
+     */
     public int getGeneration() {
         return generation;
     }
