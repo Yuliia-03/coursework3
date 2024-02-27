@@ -1,7 +1,7 @@
 import javafx.scene.paint.Color;
 import java.util.List;
 /**
- * All cells can get Disease. In this class we define the behavior of Diseased cells,
+ * All cells can get Disease. In this class we define the behaviour of Diseased cells,
  * conditions for spreading the disease and the condition for recovering.
  * 
  * 
