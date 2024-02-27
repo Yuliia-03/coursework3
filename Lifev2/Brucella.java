@@ -20,7 +20,7 @@ public class Brucella extends Cell
      */
     public Brucella(Field field, Location location, Color col)
     {
-        super(field, location, Color.BLACK);
+        super(field, location, col);
     }
 
     /**
