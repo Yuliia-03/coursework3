@@ -12,7 +12,11 @@ public class Disease extends Cell
     private int diseasedTerm;
     
     /**
-     * Constructor for objects of class Disease
+     * Create a new Diseased Cell.
+     *
+     * @param field The field currently occupied.
+     * @param location The location within the field.
+     * @param originalCell The cell that was diseased.
      */
     public Disease (Field field, Location location, Cell originalCell)
     {
@@ -21,7 +25,9 @@ public class Disease extends Cell
         this.diseasedTerm = 1;
     }
 
-    
+    /**
+     * This is how the Diseased cell decides if it's alive, recover or die
+     */
     public void act()
     {
         List<Cell> neighbours = getField().getLivingNeighbours(getLocation());
@@ -31,29 +37,31 @@ public class Disease extends Cell
         
         System.out.println(healthyCells);
         if(isAlive()){
-        if(healthyCells >= 3 && this.diseasedTerm < 5){
-            recover();
-        } else {
-            infect(neighbours);
-            if(this.diseasedTerm >= 5) {
-                //recover();
-                //this.setDead();
-                this.originalCell.setNextState(false);
-                this.getField().place(this.originalCell, this.getLocation());
-                
-                int index = Simulator.getCells().indexOf(this);
-                Simulator.getCells().set(index, this.originalCell);
-                //this.originalCell.setNextState(false);
+            if(healthyCells >= 3 && this.diseasedTerm < 5){
+                recover();
             } else {
-                this.setNextState(true);
-            }
+                infect(neighbours);
+                if(this.diseasedTerm >= 5) {
+                    this.originalCell.setNextState(false);
+                    this.getField().place(this.originalCell, this.getLocation());
+                
+                    int index = Simulator.getCells().indexOf(this);
+                    Simulator.getCells().set(index, this.originalCell);
+                } else {
+                    this.setNextState(true);
+                }
             
+            }
+            this.diseasedTerm++;
         }
-        this.diseasedTerm++;
-    }
-        //recover();
     }
     
+    /**
+     * This is where the Diseased cell infect all it's neighbours
+     * The Diseaased Cell will infect it's neighbours only if the number of
+     * healthy cells around it will be less then 3 or cell is diseased
+     * for 5 iterations
+     */
     private void infect(List<Cell> neighbours)
     {
         for(Cell cell: neighbours) {
@@ -70,6 +78,11 @@ public class Disease extends Cell
         }
     }
     
+    /**
+     * This is where the Diseased cell recover
+     * The cell would recover if and only if the number of healty neighbours is 
+     * at least 3 and the cell is diseased for less then 5 iterations 
+     */
     private void recover()
     {
         this.getField().place(this.originalCell, this.getLocation());

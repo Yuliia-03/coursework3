@@ -1,12 +1,13 @@
 #BlueJ class context
 comment0.target=Brucella
-comment0.text=\n\ Write\ a\ description\ of\ class\ Brucella\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Brucella\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=field\ location\ col
 comment1.target=Brucella(Field,\ Location,\ javafx.scene.paint.Color)
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Brucella\n
+comment1.text=\r\n\ Create\ a\ new\ Brucella.\r\n\r\n\ @param\ field\ The\ field\ currently\ occupied.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n\ @param\ col\ The\ color\ of\ the\ cell.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ \ \ \ \ \n
+comment2.text=\r\n\ This\ is\ how\ the\ Brucella\ decides\ if\ it's\ alive\ or\ not\r\n
 comment3.params=
 comment3.target=void\ conditionalSurvival()
+comment3.text=\r\n\ This\ is\ where\ the\ the\ conditions\ for\ the\ survival\ of\ Brussela\ are\ determined\r\n\ If\ the\ cell\ is\ surrounded\ by\ at\ least\ 4\ neighbors\ located\ in\ the\ north,\ south,\ \r\n\ west\ and\ east,\ then\ the\ cell\ survives\r\n
 numComments=4
