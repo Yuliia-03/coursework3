@@ -5,7 +5,9 @@ import java.util.List;
 /**
  * Rhizobium is a bacterium found in soil that helps in fixing nitrogen in leguminous plants. 
  * Fun Fact: Rhizobia used for more than 100 years in legume biofertilization [22] are particularly safe for humans, hence its edible!
- * 
+ *
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  */
 public class Rhizobium extends Cell
 {
