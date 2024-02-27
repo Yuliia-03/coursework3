@@ -38,11 +38,11 @@ public class Disease extends Cell
         
         
         if(this.isAlive()){
-            if(healthyCells >= 3 && this.diseasedTerm < 5){
+            if(healthyCells >= 2 && this.diseasedTerm < 3){
                 recover();
             } else {
                 infect(neighbours);
-                if(this.diseasedTerm == 5) {
+                if(this.diseasedTerm == 3) {
                     this.originalCell.setNextState(false);
                     this.originalCell.updateState();
                     
