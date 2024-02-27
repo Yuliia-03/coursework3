@@ -165,7 +165,10 @@ public class Simulator {
     public static List<Cell> getCells(){
         return cells;
     }
-    
+
+    public static void updateCells(int index, Cell newCell){
+        cells.set(index, newCell);
+    }
 
     /**
      * Pause for a given time.
