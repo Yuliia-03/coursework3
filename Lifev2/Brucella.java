@@ -2,10 +2,10 @@ import javafx.scene.paint.Color;
 import java.util.List;
 import java.util.Random;
 /**
- * Write a description of class Brucella here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Brucella organisms are small aerobic intracellular coccobacilli.
+ * 
+ * Fun Fact: Brucella bacteria in the milk of infected animals can spread to humans 
+ * in unpasteurized milk, ice cream, butter and cheeses.
  */
 public class Brucella extends Cell
 {
