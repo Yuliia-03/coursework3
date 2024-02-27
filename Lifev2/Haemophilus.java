@@ -7,6 +7,8 @@ import java.util.Random;
  * Fun Fact: Haemophilus influenzae received its name because it was first isolated from the lungs of individuals who died during an 
  * epidemic of influenza virus infection in 1890.
  *
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  */
 public class Haemophilus extends Cell
 {
