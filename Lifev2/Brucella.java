@@ -37,7 +37,7 @@ public class Brucella extends Cell
                  setNextState(true);
              }
             }
-        }
+    }
     
  
     private void conditionalSurvival()
@@ -78,5 +78,5 @@ public class Brucella extends Cell
              }
     }
 
-}
+    }
 }

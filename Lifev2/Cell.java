@@ -31,14 +31,23 @@ public abstract class Cell {
         setColor(col);
     }
     
+    /**
+     * Returns true if the state of the cell has been updated.
+     */
     public boolean getUpdateState(){
         return this.isUpdated;
     }
     
+    /**
+     * Indicates that the cell has been updated.
+     */
     public void setUpdated(){
         this.isUpdated = true;
     }
     
+    /**
+     * Changes the update status of the cell.
+     */
     public void setUpdateFalse(){
         this.isUpdated = false;
     }
@@ -109,12 +118,6 @@ public abstract class Cell {
         field.place(this, location);
     }
     
-    protected void setDiseased()
-    {
-        Cell newCell = new Disease(this.getField(), this.getLocation(), this);
-        this.getField().place(newCell, this.getLocation());
-    }
-
     /**
      * Return the cell's field.
      * @return The cell's field.

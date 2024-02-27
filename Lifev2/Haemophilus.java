@@ -71,8 +71,8 @@ public class Haemophilus extends Cell
 
     private void symbiosis(List<Cell> neighbours)
     {
-        
         int brucellaCells = 0;
+        
         for(Cell cell: neighbours) {
             if(cell instanceof Brucella){
                 brucellaCells++;

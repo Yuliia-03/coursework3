@@ -15,9 +15,10 @@ import java.util.Random;
 
 public class Simulator {
 
-    private static final double MYCOPLASMA_ALIVE_PROB = 0.25;
+    private static final double MYCOPLASMA_CELLS = 0.55;
     private static final double CELLS_ALIVE_PROB = 0.5;
     private static final double HAEMOPHILUS_CELLS = 0.45;
+    private static final double RHIZOBIUM_CELLS = 0.35;
     private static final double DISEASED_CELLS = 0.15;
     
     private static List<Cell> cells;
@@ -47,7 +48,6 @@ public class Simulator {
      * Iterate over the whole field updating the state of each life form.
      */
     public void simOneGeneration() {
-        
         generation++;
         for (Iterator<Cell> it = cells.iterator(); it.hasNext(); ) {
             Cell cell = it.next();
@@ -56,9 +56,6 @@ public class Simulator {
                 cell.setUpdated();
             }
             System.out.println(cell.getClass());
-            if(cell instanceof Disease ) {
-                //System.out.println(cell.getOr);
-            }
         }
 
         for (Cell cell : cells) {
@@ -87,57 +84,84 @@ public class Simulator {
           Location location = new Location(row, col);
           
           if (rand.nextDouble() <= HAEMOPHILUS_CELLS) {
-            Haemophilus myco = new Haemophilus(field, location, Color.ORANGE);
+            Haemophilus haemo = new Haemophilus(field, location, Color.ORANGE);
             
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
-                //cells.add(myco);
+                
                 if (rand.nextDouble() <= DISEASED_CELLS)
                 {
-                    Disease newCell = new Disease(myco.getField(), myco.getLocation(), myco);
+                    Disease newCell = new Disease(haemo.getField(), haemo.getLocation(), haemo);
                     newCell.getField().place(newCell, newCell.getLocation());
                     cells.add(newCell);
-                    //myco.setDiseased();
+                    
                 } else {
-                    cells.add(myco);
+                    cells.add(haemo);
                 }
             }
             else
             {
-                myco.setDead();
-                cells.add(myco);
+                haemo.setDead();
+                cells.add(haemo);
             }
             
           }
           else 
           {
-            Brucella myco = new Brucella(field, location, Color.ORANGE);
+            Brucella bruc = new Brucella(field, location, Color.ORANGE);
             
             if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
-                //cells.add(myco);
+                
                 if (rand.nextDouble() <= DISEASED_CELLS)
                 {
-                    Disease newCell = new Disease(myco.getField(), myco.getLocation(), myco);
+                    Disease newCell = new Disease(bruc.getField(), bruc.getLocation(), bruc);
                     newCell.getField().place(newCell, newCell.getLocation());
                     cells.add(newCell);
-                    //myco.setDiseased();
+                    
                 } else {
-                    cells.add(myco);
+                    cells.add(bruc);
                 }
             }
             else
             {
-                myco.setDead();
-                cells.add(myco);
+                bruc.setDead();
+                cells.add(bruc);
             }
             
           }
           
-        }
-        }
-      }
-      
+          if (rand.nextDouble() <= RHIZOBIUM_CELLS) {
+            Rhizobium rhizo = new Rhizobium(field, location, Color.ORANGE);
+            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
+            {
+                cells.add(rhizo);
+            } 
+            else {
+                rhizo.setDead();
+                cells.add(rhizo);
+            }
+          }
+          
+          if (rand.nextDouble() <= MYCOPLASMA_CELLS) {
+            Mycoplasma myco = new Mycoplasma(field, location, Color.ORANGE);
+            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
+            {
+                cells.add(myco);
+            } 
+            else {
+                myco.setDead();
+                cells.add(myco);
+            }
+          }
+    }
+    }
+    }
+    
+    /**
+     * Return the cells on the field.
+     * @return The list of Cells.
+     */
     public static List<Cell> getCells(){
         return cells;
     }
