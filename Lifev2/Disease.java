@@ -4,7 +4,8 @@ import java.util.List;
  * All cells can get Disease. In this class we define the behaviour of Diseased cells,
  * conditions for spreading the disease and the condition for recovering.
  * 
- * 
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  **/
 public class Disease extends Cell
 {
