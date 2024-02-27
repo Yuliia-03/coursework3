@@ -6,6 +6,9 @@ import java.util.Random;
  * 
  * Fun Fact: Brucella bacteria in the milk of infected animals can spread to humans 
  * in unpasteurized milk, ice cream, butter and cheeses.
+ *
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  */
 public class Brucella extends Cell
 {
