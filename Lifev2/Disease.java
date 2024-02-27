@@ -36,7 +36,7 @@ public class Disease extends Cell
                                     .filter(s -> !(s instanceof Disease))
                                     .count();
         
-        //System.out.println(healthyCells);
+        
         if(this.isAlive()){
             if(healthyCells >= 3 && this.diseasedTerm < 5){
                 recover();
