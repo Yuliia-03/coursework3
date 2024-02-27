@@ -9,6 +9,9 @@ import java.util.List;
  *
  * @author David J. Barnes, Michael Kölling & Jeffery Raphael
  * @version 2022.01.06
+  *
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  */
 
 public class Mycoplasma extends Cell {
