@@ -1,13 +1,15 @@
 import javafx.scene.paint.Color;
 import java.util.List;
 /**
- * Write a description of class Disease here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+ * All cells can get Disease. In this class we define the behavior of Diseased cells,
+ * conditions for spreading the disease and the condition for recovering.
+ * 
+ * 
+ **/
 public class Disease extends Cell
 {
+    private List<Cell> currentGeneration;
+    
     protected Cell originalCell;
     private int diseasedTerm;
     
@@ -35,18 +37,21 @@ public class Disease extends Cell
                                     .filter(s -> !(s instanceof Disease))
                                     .count();
         
-        System.out.println(healthyCells);
-        if(isAlive()){
+        //System.out.println(healthyCells);
+        if(this.isAlive()){
             if(healthyCells >= 3 && this.diseasedTerm < 5){
                 recover();
             } else {
                 infect(neighbours);
-                if(this.diseasedTerm >= 5) {
+                if(this.diseasedTerm == 5) {
                     this.originalCell.setNextState(false);
+                    this.originalCell.updateState();
+                    
                     this.getField().place(this.originalCell, this.getLocation());
                 
-                    int index = Simulator.getCells().indexOf(this);
-                    Simulator.getCells().set(index, this.originalCell);
+                    replaceCell(this, this.originalCell);
+                    
+                    this.originalCell.setUpdated();
                 } else {
                     this.setNextState(true);
                 }
@@ -58,7 +63,7 @@ public class Disease extends Cell
     
     /**
      * This is where the Diseased cell infect all it's neighbours
-     * The Diseaased Cell will infect it's neighbours only if the number of
+     * The Diseased Cell will infect it's neighbours only if the number of
      * healthy cells around it will be less then 3 or cell is diseased
      * for 5 iterations
      */
@@ -67,32 +72,36 @@ public class Disease extends Cell
         for(Cell cell: neighbours) {
             if(!(cell instanceof Disease)){
                 Disease newCell = new Disease(cell.getField(), cell.getLocation(), cell);
-                cell.getField().place(newCell, cell.getLocation());
-                
-                int index = Simulator.getCells().indexOf(cell);
-                Simulator.getCells().set(index, newCell);
                 
                 newCell.setNextState(true);
                 newCell.setUpdated();
+                cell.getField().place(newCell, cell.getLocation());
+                
+                replaceCell(cell, newCell);
             }
         }
     }
     
     /**
      * This is where the Diseased cell recover
-     * The cell would recover if and only if the number of healty neighbours is 
+     * The cell would recover if and only if the number of healthy neighbours is 
      * at least 3 and the cell is diseased for less then 5 iterations 
      */
     private void recover()
     {
         this.getField().place(this.originalCell, this.getLocation());
-        
-        int index = Simulator.getCells().indexOf(this);
-        Simulator.getCells().set(index, this.originalCell);
-        
-        originalCell.setNextState(true);
-        originalCell.setUpdated();
+        this.originalCell.setNextState(true);
+        this.originalCell.setUpdated();
+        replaceCell(this, this.originalCell);
     }
     
     
+    /**
+     * This is where the Diseased cells a replaced by original cells when they recover
+     * or the healthy cells are replaced by diseased cell during the spreading of the disease
+     */
+    private void replaceCell(Cell oldCell, Cell newCell) {
+        int index = Simulator.getCells().indexOf(oldCell);
+        Simulator.updateCells(index, newCell);
+    }
 }
