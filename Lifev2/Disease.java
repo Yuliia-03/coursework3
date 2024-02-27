@@ -8,7 +8,6 @@ import java.util.List;
  **/
 public class Disease extends Cell
 {
-    private List<Cell> currentGeneration;
     
     protected Cell originalCell;
     private int diseasedTerm;
