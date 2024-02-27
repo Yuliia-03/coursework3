@@ -19,7 +19,7 @@ public class Simulator {
     private static final double CELLS_ALIVE_PROB = 0.5;
     private static final double HAEMOPHILUS_CELLS = 0.45;
     private static final double RHIZOBIUM_CELLS = 0.35;
-    private static final double DISEASED_CELLS = 0.15;
+    private static final double DISEASED_CELLS = 0.5;
     
     private static List<Cell> cells;
     private Field field;
