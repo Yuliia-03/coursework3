@@ -8,6 +8,9 @@ import java.util.Random;
  *
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
+ *
+ * K22019372 - Sanika Gadgil
+ * K23098137 - Yuliia Bohak
  */
 
 public class Randomizer {
