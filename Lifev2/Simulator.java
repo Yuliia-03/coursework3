@@ -117,6 +117,9 @@ public class Simulator {
         }
     }
     
+    /**
+     * Place cells on the field
+     */
     private static void cellCreation(Random rand, Cell cell){
     
         if (rand.nextDouble() <= CELLS_ALIVE_PROB)
