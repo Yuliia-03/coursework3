@@ -1,12 +1,13 @@
 import javafx.scene.paint.Color;
 import java.util.List;
 /**
- * All cells can get Disease. In this class we define the behaviour of Diseased cells,
+ * All cells can get Disease. In this class we define the behavior of Diseased cells,
  * conditions for spreading the disease and the condition for recovering.
  * 
  * K22019372 - Sanika Gadgil
  * K23098137 - Yuliia Bohak
  **/
+ 
 public class Disease extends Cell
 {
     
@@ -48,7 +49,6 @@ public class Disease extends Cell
                     this.originalCell.updateState();
                     
                     this.getField().place(this.originalCell, this.getLocation());
-                
                     replaceCell(this, this.originalCell);
                     
                     this.originalCell.setUpdated();

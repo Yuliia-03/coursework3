@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Brucella
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Brucella\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Brucella\ organisms\ are\ small\ aerobic\ intracellular\ coccobacilli.\r\n\ \r\n\ Fun\ Fact\:\ Brucella\ bacteria\ in\ the\ milk\ of\ infected\ animals\ can\ spread\ to\ humans\ \r\n\ in\ unpasteurized\ milk,\ ice\ cream,\ butter\ and\ cheeses.\r\n\r\n\ K22019372\ -\ Sanika\ Gadgil\r\n\ K23098137\ -\ Yuliia\ Bohak\r\n
 comment1.params=field\ location\ col
 comment1.target=Brucella(Field,\ Location,\ javafx.scene.paint.Color)
 comment1.text=\r\n\ Create\ a\ new\ Brucella.\r\n\r\n\ @param\ field\ The\ field\ currently\ occupied.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n\ @param\ col\ The\ color\ of\ the\ cell.\r\n

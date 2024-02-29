@@ -13,7 +13,7 @@ public class Rhizobium extends Cell
 {
     private int age; //to count the number of generations the rhizobium has survived for
     
-    private static final Color[] COLORS = {Color.BROWN, Color.PINK, Color.ORANGE, Color.YELLOW, Color.LIGHTGREEN, Color.DARKGREEN, Color.LIGHTBLUE, Color.DARKBLUE, Color.VIOLET};
+    private static final Color[] COLORS = {Color.BROWN, Color.PINK, Color.ORANGE, Color.YELLOW, Color.LIGHTGREEN, Color.DARKGREEN, Color.LIGHTBLUE, Color.DARKBLUE, Color.PURPLE};
     
     /**
      * Create a new Haemophilus.

@@ -7,9 +7,11 @@ import java.util.Random;
  * Fun Fact: Haemophilus influenzae received its name because it was first isolated from the lungs of individuals who died during an 
  * epidemic of influenza virus infection in 1890.
  *
+ *
  * K22019372 - Sanika Gadgil
  * K23098137 - Yuliia Bohak
  */
+
 public class Haemophilus extends Cell
 {
     
@@ -50,7 +52,7 @@ public class Haemophilus extends Cell
     }
     
     /**
-     * This is how the Haemophilus changes its color when it bhas exactly 3 neighbours.
+     * This is how the Haemophilus acquires its color when it has exactly 3 neighbours.
      */
     public Color getColor()
     {
@@ -87,8 +89,7 @@ public class Haemophilus extends Cell
             this.getField().place(newCell, this.getLocation());
             
             int index = Simulator.getCells().indexOf(this);
-            Simulator.getCells().set(index, newCell);
-            
+            Simulator.updateCells(index, newCell);            
             newCell.setUpdated();
             
         }
