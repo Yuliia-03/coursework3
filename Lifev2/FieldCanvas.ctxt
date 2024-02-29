@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=FieldCanvas
-comment0.text=\r\n\ Provide\ a\ graphical\ view\ of\ the\ field.\ This\ is\ a\ custom\ node\ for\ the\ user\ interface.\ \r\n\r\n\ @author\ Jeffery\ Raphael\r\n\ @version\ 2024.02.03\r\n
+comment0.text=\r\n\ Provide\ a\ graphical\ view\ of\ the\ field.\ This\ is\ a\ custom\ node\ for\ the\ user\ interface.\ \r\n\r\n\ @author\ Jeffery\ Raphael\r\n\ @version\ 2024.02.03\r\n\ \r\n\ K22019372\ -\ Sanika\ Gadgil\r\n\ K23098137\ -\ Yuliia\ Bohak\r\n
 comment1.params=height\ width
 comment1.target=FieldCanvas(int,\ int)
 comment1.text=\r\n\ Create\ a\ new\ FieldView\ component.\r\n

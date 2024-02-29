@@ -17,7 +17,6 @@ public abstract class Cell {
     private Field field;
     private Location location;
     private Color color = Color.WHITE;
-    
     protected boolean isUpdated = false;
 
     /**

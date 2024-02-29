@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Rhizobium
-comment0.text=\n\ Rhizobium\ is\ a\ bacterium\ found\ in\ soil\ that\ helps\ in\ fixing\ nitrogen\ in\ leguminous\ plants.\ \n\ Fun\ Fact\:\ Rhizobia\ used\ for\ more\ than\ 100\ years\ in\ legume\ biofertilization\ [22]\ are\ particularly\ safe\ for\ humans,\ hence\ its\ edible\!\n\ \n
+comment0.text=\r\n\ Rhizobium\ is\ a\ bacterium\ found\ in\ soil\ that\ helps\ in\ fixing\ nitrogen\ in\ leguminous\ plants.\ \r\n\ Fun\ Fact\:\ Rhizobia\ used\ for\ more\ than\ 100\ years\ in\ legume\ biofertilization\ [22]\ are\ particularly\ safe\ for\ humans,\ hence\ its\ edible\!\r\n\r\n\ K22019372\ -\ Sanika\ Gadgil\r\n\ K23098137\ -\ Yuliia\ Bohak\r\n
 comment1.params=field\ location\ col
 comment1.target=Rhizobium(Field,\ Location,\ javafx.scene.paint.Color)
-comment1.text=\n\ Create\ a\ new\ Haemophilus.\n\ \n\ @param\ field\ The\ field\ currently\ occupied.\n\ @param\ location\ The\ location\ within\ the\ field.\n\ @param\ col\ The\ color\ of\ the\ cell.\n
+comment1.text=\r\n\ Create\ a\ new\ Haemophilus.\r\n\ \r\n\ @param\ field\ The\ field\ currently\ occupied.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n\ @param\ col\ The\ color\ of\ the\ cell.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ This\ is\ how\ the\ Rhizobium\ decides\ if\ it's\ alive\ or\ not\n
+comment2.text=\r\n\ This\ is\ how\ the\ Rhizobium\ decides\ if\ it's\ alive\ or\ not\r\n
 comment3.params=
 comment3.target=javafx.scene.paint.Color\ getColor()
-comment3.text=\n\ This\ is\ how\ the\ Rhizobium\ changes\ its\ color\ based\ on\ its\ age.\n
+comment3.text=\r\n\ This\ is\ how\ the\ Rhizobium\ changes\ its\ color\ based\ on\ its\ age.\r\n
 numComments=4

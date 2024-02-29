@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Disease
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Disease\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ All\ cells\ can\ get\ Disease.\ In\ this\ class\ we\ define\ the\ behavior\ of\ Diseased\ cells,\r\n\ conditions\ for\ spreading\ the\ disease\ and\ the\ condition\ for\ recovering.\r\n\ \r\n\ K22019372\ -\ Sanika\ Gadgil\r\n\ K23098137\ -\ Yuliia\ Bohak\r\n
 comment1.params=field\ location\ originalCell
 comment1.target=Disease(Field,\ Location,\ Cell)
 comment1.text=\r\n\ Create\ a\ new\ Diseased\ Cell.\r\n\r\n\ @param\ field\ The\ field\ currently\ occupied.\r\n\ @param\ location\ The\ location\ within\ the\ field.\r\n\ @param\ originalCell\ The\ cell\ that\ was\ diseased.\r\n
@@ -9,8 +9,11 @@ comment2.target=void\ act()
 comment2.text=\r\n\ This\ is\ how\ the\ Diseased\ cell\ decides\ if\ it's\ alive,\ recover\ or\ die\r\n
 comment3.params=neighbours
 comment3.target=void\ infect(java.util.List)
-comment3.text=\r\n\ This\ is\ where\ the\ Diseased\ cell\ infect\ all\ it's\ neighbours\r\n\ The\ Diseaased\ Cell\ will\ infect\ it's\ neighbours\ only\ if\ the\ number\ of\r\n\ healthy\ cells\ around\ it\ will\ be\ less\ then\ 3\ or\ cell\ is\ diseased\r\n\ for\ 5\ iterations\r\n
+comment3.text=\r\n\ This\ is\ where\ the\ Diseased\ cell\ infect\ all\ it's\ neighbours\r\n\ The\ Diseased\ Cell\ will\ infect\ it's\ neighbours\ only\ if\ the\ number\ of\r\n\ healthy\ cells\ around\ it\ will\ be\ less\ then\ 3\ or\ cell\ is\ diseased\r\n\ for\ 5\ iterations\r\n
 comment4.params=
 comment4.target=void\ recover()
-comment4.text=\r\n\ This\ is\ where\ the\ Diseased\ cell\ recover\r\n\ The\ cell\ would\ recover\ if\ and\ only\ if\ the\ number\ of\ healty\ neighbours\ is\ \r\n\ at\ least\ 3\ and\ the\ cell\ is\ diseased\ for\ less\ then\ 5\ iterations\ \r\n
-numComments=5
+comment4.text=\r\n\ This\ is\ where\ the\ Diseased\ cell\ recover\r\n\ The\ cell\ would\ recover\ if\ and\ only\ if\ the\ number\ of\ healthy\ neighbours\ is\ \r\n\ at\ least\ 3\ and\ the\ cell\ is\ diseased\ for\ less\ then\ 5\ iterations\ \r\n
+comment5.params=oldCell\ newCell
+comment5.target=void\ replaceCell(Cell,\ Cell)
+comment5.text=\r\n\ This\ is\ where\ the\ Diseased\ cells\ a\ replaced\ by\ original\ cells\ when\ they\ recover\r\n\ or\ the\ healthy\ cells\ are\ replaced\ by\ diseased\ cell\ during\ the\ spreading\ of\ the\ disease\r\n
+numComments=6

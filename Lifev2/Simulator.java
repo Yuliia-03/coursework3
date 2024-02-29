@@ -12,17 +12,18 @@ import java.util.Random;
  * @author David J. Barnes, Michael Kölling & Jeffery Raphael
  * @version 2024.02.03
  *
+ *
  * K22019372 - Sanika Gadgil
  * K23098137 - Yuliia Bohak
  */
 
 public class Simulator {
 
-    private static final double MYCOPLASMA_CELLS = 0.55;
+    private static final double MYCOPLASMA_CELLS = 0.45;
     private static final double CELLS_ALIVE_PROB = 0.5;
-    private static final double HAEMOPHILUS_CELLS = 0.45;
-    private static final double RHIZOBIUM_CELLS = 0.35;
-    private static final double DISEASED_CELLS = 0.5;
+    private static final double HAEMOPHILUS_CELLS = 0.25;
+    private static final double RHIZOBIUM_CELLS = 0.65;
+    private static final double DISEASED_CELLS = 0.25;
     
     private static List<Cell> cells;
     private Field field;
@@ -79,86 +80,63 @@ public class Simulator {
     /**
      * Randomly populate the field live/dead life forms
      */
+
     private void populate() {
       Random rand = Randomizer.getRandom();
       field.clear();
+      
+      
       for (int row = 0; row < field.getDepth(); row++) {
         for (int col = 0; col < field.getWidth(); col++) {
           Location location = new Location(row, col);
           
-          if (rand.nextDouble() <= HAEMOPHILUS_CELLS) {
+          Double random = rand.nextDouble();
+          
+          if (random <= HAEMOPHILUS_CELLS) {
             Haemophilus haemo = new Haemophilus(field, location, Color.ORANGE);
+            cellCreation(rand, haemo);
             
-            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
-            {
-                
-                if (rand.nextDouble() <= DISEASED_CELLS)
-                {
-                    Disease newCell = new Disease(haemo.getField(), haemo.getLocation(), haemo);
-                    newCell.getField().place(newCell, newCell.getLocation());
-                    cells.add(newCell);
-                    
-                } else {
-                    cells.add(haemo);
-                }
-            }
-            else
-            {
-                haemo.setDead();
-                cells.add(haemo);
-            }
-            
+          } 
+          
+          else if (random <= MYCOPLASMA_CELLS) {
+            Mycoplasma myco = new Mycoplasma(field, location, Color.ORANGE);
+            cellCreation(rand, myco);
+          } 
+          
+          else if (random <= RHIZOBIUM_CELLS) {
+            Rhizobium rhizo = new Rhizobium(field, location, Color.ORANGE);
+            cellCreation(rand, rhizo);
           }
-          else 
+          else
           {
             Brucella bruc = new Brucella(field, location, Color.ORANGE);
+            cellCreation(rand, bruc);
             
-            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
+          }
+        }
+        }
+    }
+    
+    private static void cellCreation(Random rand, Cell cell){
+    
+        if (rand.nextDouble() <= CELLS_ALIVE_PROB)
             {
                 
                 if (rand.nextDouble() <= DISEASED_CELLS)
                 {
-                    Disease newCell = new Disease(bruc.getField(), bruc.getLocation(), bruc);
+                    Disease newCell = new Disease(cell.getField(), cell.getLocation(), cell);
                     newCell.getField().place(newCell, newCell.getLocation());
                     cells.add(newCell);
                     
                 } else {
-                    cells.add(bruc);
+                    cells.add(cell);
                 }
             }
             else
             {
-                bruc.setDead();
-                cells.add(bruc);
+                cell.setDead();
+                cells.add(cell);
             }
-            
-          }
-          
-          if (rand.nextDouble() <= RHIZOBIUM_CELLS) {
-            Rhizobium rhizo = new Rhizobium(field, location, Color.ORANGE);
-            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
-            {
-                cells.add(rhizo);
-            } 
-            else {
-                rhizo.setDead();
-                cells.add(rhizo);
-            }
-          }
-          
-          if (rand.nextDouble() <= MYCOPLASMA_CELLS) {
-            Mycoplasma myco = new Mycoplasma(field, location, Color.ORANGE);
-            if (rand.nextDouble() <= CELLS_ALIVE_PROB)
-            {
-                cells.add(myco);
-            } 
-            else {
-                myco.setDead();
-                cells.add(myco);
-            }
-          }
-    }
-    }
     }
     
     /**
@@ -168,9 +146,9 @@ public class Simulator {
     public static List<Cell> getCells(){
         return cells;
     }
-    
+
     /**
-     * Update the cells on the field.
+     * 
      */
     public static void updateCells(int index, Cell newCell){
         cells.set(index, newCell);
@@ -188,15 +166,14 @@ public class Simulator {
             // wake up
         }
     }
-
-
+    
     /**
      * Return field
      */
     public Field getField() {
         return field;
     }
-
+    
     /**
      * Return the number of the current generation
      */

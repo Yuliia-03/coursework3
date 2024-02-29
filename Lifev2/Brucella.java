@@ -10,6 +10,7 @@ import java.util.Random;
  * K22019372 - Sanika Gadgil
  * K23098137 - Yuliia Bohak
  */
+
 public class Brucella extends Cell
 {
     private static final double BRUCELLA_ALIVE_PROB = 0.75;
@@ -35,16 +36,20 @@ public class Brucella extends Cell
         setNextState(false);
         Random rand = Randomizer.getRandom();
         
-        if (isAlive() && rand.nextDouble() <= BRUCELLA_ALIVE_PROB)  {
-            conditionalSurvival();
-        }
-        else if(!isAlive() && rand.nextDouble() > BRUCELLA_ALIVE_PROB)
+        if (isAlive()){
+            if(rand.nextDouble() <= BRUCELLA_ALIVE_PROB)  {
+                conditionalSurvival();
+            }
+            else if(neighbours.size() >= 4) {
+                setNextState(true);
+            }
+        } else if(rand.nextDouble() > BRUCELLA_ALIVE_PROB)
         { 
              if (neighbours.size() >= 1 && neighbours.size() <= 4)
              {
                  setNextState(true);
              }
-            }
+        }
     }
     
     /**
