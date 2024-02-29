@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class Brucella extends Cell
 {
-    private static final double BRUCELLA_ALIVE_PROB = 0.75;
+    private static final double BRUCELLA_RULE_PROB = 0.75;
     
     /**
      * Create a new Brucella.
@@ -37,13 +37,13 @@ public class Brucella extends Cell
         Random rand = Randomizer.getRandom();
         
         if (isAlive()){
-            if(rand.nextDouble() <= BRUCELLA_ALIVE_PROB)  {
+            if(rand.nextDouble() <= BRUCELLA_RULE_PROB)  {
                 conditionalSurvival();
             }
             else if(neighbours.size() >= 4) {
                 setNextState(true);
             }
-        } else if(rand.nextDouble() > BRUCELLA_ALIVE_PROB)
+        } else if(rand.nextDouble() > BRUCELLA_RULE_PROB)
         { 
              if (neighbours.size() >= 1 && neighbours.size() <= 4)
              {
